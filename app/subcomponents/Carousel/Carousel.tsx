@@ -36,12 +36,13 @@ const EmblaCarousel: React.FC<PropType> = ({slides, options}) => {
     const engine = emblaApi.internalEngine();
     const scrollProgress = emblaApi.scrollProgress();
     const offset = 1 / images.length;
-    const progress = Math.round(((scrollProgress + offset) * 100) % 100);
-    const progressWidth = String(
-      Math.round(progress === 0 ? 100 : progress) + '%',
-    );
+    const progress = Math.round((scrollProgress * 100) % 100);
+    const progressWidth = String(Math.round(progress) + '%');
     if (progressBarRef.current) {
-      progressBarRef.current.style.width = progressWidth;
+      progressBarRef.current.style.marginLeft = progressWidth;
+      progressBarRef.current.style.width = String(
+        Math.round(offset * 100) + '%',
+      );
     }
 
     const styles = emblaApi.scrollSnapList().map((scrollSnap, index) => {
