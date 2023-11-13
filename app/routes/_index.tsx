@@ -6,6 +6,8 @@ import type {
   FeaturedCollectionFragment,
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
+import EmblaCarousel from '~/subcomponents/Carousel/Carousel';
+import type {EmblaOptionsType} from 'embla-carousel-react';
 
 export const meta: MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -51,6 +53,9 @@ function FeaturedCollection({
     </Link>
   );
 }
+const OPTIONS: EmblaOptionsType = {skipSnaps: true, loop: true};
+const SLIDE_COUNT = 3;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 function RecommendedProducts({
   products,
@@ -59,6 +64,7 @@ function RecommendedProducts({
 }) {
   return (
     <div className="recommended-products">
+      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       <h2>Recommended Products</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>

@@ -1,0 +1,11 @@
+.carouselProgress {
+    background: #ccc;
+    margin-top: 24px;
+  }
+  
+.carouselProgressBar {
+    background: purple;
+    height: 4px;
+    transition: width 40ms ease;
+    width: 0;
+  }

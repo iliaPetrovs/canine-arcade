@@ -1,4 +1,5 @@
 import {useNonce} from '@shopify/hydrogen';
+import {cssBundleHref} from '@remix-run/css-bundle';
 import {
   defer,
   type SerializeFrom,
@@ -21,6 +22,7 @@ import type {CustomerAccessToken} from '@shopify/hydrogen/storefront-api-types';
 import favicon from '../public/favicon.svg';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
+import emblaStyles from './styles/embla.css';
 import {Layout} from '~/components/Layout';
 
 /**
@@ -48,6 +50,7 @@ export function links() {
   return [
     {rel: 'stylesheet', href: resetStyles},
     {rel: 'stylesheet', href: appStyles},
+    {rel: 'stylesheet', href: emblaStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
@@ -57,6 +60,7 @@ export function links() {
       href: 'https://shop.app',
     },
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'stylesheet', href: cssBundleHref},
   ];
 }
 

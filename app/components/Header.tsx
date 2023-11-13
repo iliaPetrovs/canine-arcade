@@ -3,6 +3,8 @@ import {Suspense} from 'react';
 import type {HeaderQuery} from 'storefrontapi.generated';
 import type {LayoutProps} from './Layout';
 import {useRootLoaderData} from '~/root';
+import {Menu} from '@headlessui/react';
+import styles from './Header.module.css';
 
 type HeaderProps = Pick<LayoutProps, 'header' | 'cart' | 'isLoggedIn'>;
 
@@ -81,6 +83,34 @@ export function HeaderMenu({
           </NavLink>
         );
       })}
+      <Menu>
+        <Menu.Button className={styles.headerItemDropdown}>More</Menu.Button>
+        <Menu.Items>
+          <Menu.Item>
+            {({active}) => (
+              <a
+                className={`${active && 'bg-blue-500'}`}
+                href="/account-settings"
+              >
+                Account settings
+              </a>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({active}) => (
+              <a
+                className={`${active && 'bg-blue-500'}`}
+                href="/account-settings"
+              >
+                Documentation
+              </a>
+            )}
+          </Menu.Item>
+          <Menu.Item disabled>
+            <span className="opacity-75">Invite a friend (coming soon!)</span>
+          </Menu.Item>
+        </Menu.Items>
+      </Menu>
     </nav>
   );
 }
