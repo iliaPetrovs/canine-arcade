@@ -3,8 +3,9 @@ import {Suspense} from 'react';
 import type {HeaderQuery} from 'storefrontapi.generated';
 import type {LayoutProps} from './Layout';
 import {useRootLoaderData} from '~/root';
-import {Menu} from '@headlessui/react';
 import styles from './Header.module.css';
+import classNames from 'classnames';
+import Dropdown from '~/subcomponents/Dropdown/Dropdown';
 
 type HeaderProps = Pick<LayoutProps, 'header' | 'cart' | 'isLoggedIn'>;
 
@@ -13,16 +14,24 @@ type Viewport = 'desktop' | 'mobile';
 export function Header({header, isLoggedIn, cart}: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
+    <header className={classNames('header', styles.header)}>
+      <NavLink
+        className={styles.headerLogo}
+        prefetch="intent"
+        to="/"
+        style={activeLinkStyle}
+        end
+      >
         <strong>{shop.name}</strong>
       </NavLink>
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-      />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      <div className={styles.navbar}>
+        <HeaderMenu
+          menu={menu}
+          viewport="desktop"
+          primaryDomainUrl={header.shop.primaryDomain.url}
+        />
+        <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      </div>
     </header>
   );
 }
@@ -47,7 +56,10 @@ export function HeaderMenu({
   }
 
   return (
-    <nav className={className} role="navigation">
+    <nav
+      className={classNames(className, styles.navbarProduct)}
+      role="navigation"
+    >
       {viewport === 'mobile' && (
         <NavLink
           end
@@ -69,7 +81,7 @@ export function HeaderMenu({
           item.url.includes(primaryDomainUrl)
             ? new URL(item.url).pathname
             : item.url;
-        return (
+        return !item.items.length ? (
           <NavLink
             className="header-menu-item"
             end
@@ -81,36 +93,14 @@ export function HeaderMenu({
           >
             {item.title}
           </NavLink>
+        ) : (
+          <Dropdown
+            item={item}
+            publicStoreDomain={publicStoreDomain}
+            primaryDomainUrl={primaryDomainUrl}
+          />
         );
       })}
-      <Menu>
-        <Menu.Button className={styles.headerItemDropdown}>More</Menu.Button>
-        <Menu.Items>
-          <Menu.Item>
-            {({active}) => (
-              <a
-                className={`${active && 'bg-blue-500'}`}
-                href="/account-settings"
-              >
-                Account settings
-              </a>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({active}) => (
-              <a
-                className={`${active && 'bg-blue-500'}`}
-                href="/account-settings"
-              >
-                Documentation
-              </a>
-            )}
-          </Menu.Item>
-          <Menu.Item disabled>
-            <span className="opacity-75">Invite a friend (coming soon!)</span>
-          </Menu.Item>
-        </Menu.Items>
-      </Menu>
     </nav>
   );
 }

@@ -1,0 +1,38 @@
+.headerItemDropdown {
+    @media(min-width: 967px) {
+        display: flex;
+        background: rgb(246, 232, 255);
+        border-radius: 50px;
+    }
+}
+
+.dropdownButton {
+    @media(min-width: 967px) {
+        font-size: 16px;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50px;
+        background: none;
+        border: none;
+    }
+}
+
+.dropdownButton:hover {
+    @media(min-width: 967px) {
+        background: rgb(251, 244, 255);
+
+    }
+}
+
+.active {
+    @media(min-width: 967px) {
+        background: rgb(246, 232, 255);
+    }
+}
+
+.dropdownContainer {
+    @media(min-width: 967px) {
+        display: flex;
+        border-radius: 50px;
+    }
+}
