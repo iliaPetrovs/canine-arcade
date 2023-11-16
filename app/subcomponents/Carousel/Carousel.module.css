@@ -1,11 +1,25 @@
 .carouselProgress {
-    background: #ccc;
-    margin-top: 24px;
-  }
+  display: flex;
+  gap: 24px;
+  background: white;
+  margin-top: 24px;
+  width: 100%;
+}
   
-.carouselProgressBar {
-    background: purple;
-    height: 4px;
-    transition: width 40ms ease;
-    width: 0;
+
+.carouselProgressBarBg {
+  height: 4px;
+  background: #ccc;
+  width: 100%;
   }
+
+.carouselProgressBar {
+  height: 4px;
+  background: purple;
+  width: 0;
+  transition: width 350ms ease-in-out;
+}
+
+.scrolledTo {
+  width: 100%;
+}

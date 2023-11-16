@@ -53,7 +53,7 @@ function FeaturedCollection({
     </Link>
   );
 }
-const OPTIONS: EmblaOptionsType = {skipSnaps: true, loop: true};
+const OPTIONS: EmblaOptionsType = {skipSnaps: true};
 const SLIDE_COUNT = 3;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 

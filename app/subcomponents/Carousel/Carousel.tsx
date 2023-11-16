@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import {flushSync} from 'react-dom';
 import {hrefByIndex, imageByIndex, images} from './imagesByIndex';
 import styles from './Carousel.module.css';
+import classNames from 'classnames';
 
 const TWEEN_FACTOR = 1.2;
 
@@ -16,35 +17,14 @@ const EmblaCarousel: React.FC<PropType> = ({slides, options}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [tweenValues, setTweenValues] = useState<number[]>([]);
   const progressBarRef = useRef<HTMLElement>(null);
-
-  //   React.useEffect(() => {
-  //     if (!emblaApi) return;
-  //     if (typeof window === 'undefined') return;
-
-  //     const intervalId = window.setInterval(() => {
-  //       console.log(emblaApi.scrollProgress());
-  //     }, 2000);
-
-  //     return () => {
-  //       window.clearInterval(intervalId);
-  //     };
-  //   }, []);
-
+  const [currentScrollIdx, setSurrentScrollIdx] = useState(0);
   const onScroll = useCallback(() => {
     if (!emblaApi) return;
 
+    setSurrentScrollIdx(emblaApi.selectedScrollSnap());
+
     const engine = emblaApi.internalEngine();
     const scrollProgress = emblaApi.scrollProgress();
-    const offset = 1 / images.length;
-    const progress = Math.round((scrollProgress * 100) % 100);
-    const progressWidth = String(Math.round(progress) + '%');
-    if (progressBarRef.current) {
-      progressBarRef.current.style.marginLeft = progressWidth;
-      progressBarRef.current.style.width = String(
-        Math.round(offset * 100) + '%',
-      );
-    }
-
     const styles = emblaApi.scrollSnapList().map((scrollSnap, index) => {
       let diffToTarget = scrollSnap - scrollProgress;
 
@@ -100,10 +80,15 @@ const EmblaCarousel: React.FC<PropType> = ({slides, options}) => {
           ))}
         </div>
         <div className={styles.carouselProgress}>
-          <div
-            ref={progressBarRef as React.RefObject<HTMLDivElement>}
-            className={styles.carouselProgressBar}
-          ></div>
+          {slides.map((slide, index) => (
+            <div key={slide} className={styles.carouselProgressBarBg}>
+              <div
+                className={classNames(styles.carouselProgressBar, {
+                  [styles.scrolledTo]: currentScrollIdx >= index,
+                })}
+              ></div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
