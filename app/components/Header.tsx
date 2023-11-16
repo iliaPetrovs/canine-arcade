@@ -6,6 +6,7 @@ import {useRootLoaderData} from '~/root';
 import styles from './Header.module.css';
 import classNames from 'classnames';
 import Dropdown from '~/subcomponents/Dropdown/Dropdown';
+import banner from './img/banner.png';
 
 type HeaderProps = Pick<LayoutProps, 'header' | 'cart' | 'isLoggedIn'>;
 
@@ -22,7 +23,11 @@ export function Header({header, isLoggedIn, cart}: HeaderProps) {
         style={activeLinkStyle}
         end
       >
-        <strong>{shop.name}</strong>
+        <img
+          className={styles.banner}
+          src={banner}
+          alt="Hyena cartoon holding a sewing needle with a thread coming out, underlining the words 'Canine Arcade'"
+        />
       </NavLink>
       <div className={styles.navbar}>
         <HeaderMenu

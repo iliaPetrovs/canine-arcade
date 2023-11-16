@@ -1,11 +1,9 @@
 .headerLogo {
     @media(min-width: 967px) {
-        margin-top: 48px;
-        display: block;
-        padding: 24px;
     }
 }
 .header {
+    background: var(--color-light);
     @media(min-width: 967px) {
         display: flex;
         flex-direction: column;
@@ -40,5 +38,15 @@
     @media(min-width: 967px) {
         background: var(--secondary);
         border-radius: 50px;
+    }
+}
+
+.banner {
+    display: none;
+    @media(min-width: 967px) {
+        display: block;
+        margin-top: 90px;
+        max-width: 300px;
+        margin-bottom: -18px;
     }
 }
