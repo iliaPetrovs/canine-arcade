@@ -5,6 +5,7 @@ import {flushSync} from 'react-dom';
 import {hrefByIndex, imageByIndex, images} from './imagesByIndex';
 import styles from './Carousel.module.css';
 import classNames from 'classnames';
+import Autoplay from 'embla-carousel-autoplay';
 
 const TWEEN_FACTOR = 1.2;
 
@@ -14,10 +15,11 @@ type PropType = {
 };
 
 const EmblaCarousel: React.FC<PropType> = ({slides, options}) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const autoplay = useRef(Autoplay({delay: 3000, stopOnInteraction: false}));
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [autoplay.current]);
   const [tweenValues, setTweenValues] = useState<number[]>([]);
-  const progressBarRef = useRef<HTMLElement>(null);
   const [currentScrollIdx, setSurrentScrollIdx] = useState(0);
+
   const onScroll = useCallback(() => {
     if (!emblaApi) return;
 
