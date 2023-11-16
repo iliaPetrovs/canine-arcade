@@ -368,6 +368,7 @@ aside li {
 }
 
 .product-image-wrapper {
+  margin: 0 auto;
   max-width: 300px;
 }
 
