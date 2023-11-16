@@ -29,7 +29,7 @@
 
 .navbar a {
     @media(min-width: 967px) {
-        padding: 8px;
+        padding: 8px 24px;
         text-decoration: none;
         transition: all 200ms ease-in-out;
     }

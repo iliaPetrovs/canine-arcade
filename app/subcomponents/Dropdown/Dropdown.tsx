@@ -1,4 +1,4 @@
-import {Menu} from '@headlessui/react';
+import {Menu, Transition} from '@headlessui/react';
 
 import styles from './Dropdown.module.css';
 import classNames from 'classnames';
@@ -36,33 +36,43 @@ const Dropdown = ({
           <Menu.Button className={classNames(styles.dropdownButton)}>
             {item.title}
           </Menu.Button>
-          <Menu.Items className={classNames(styles.headerItemDropdown)}>
-            {item.items.map((subItem) => {
-              if (!item.url) return null;
+          <Transition
+            className={styles.absolute}
+            enter={styles.enter}
+            enterFrom={styles.enterFrom}
+            enterTo={styles.enterTo}
+            leave={styles.leave}
+            leaveFrom={styles.leaveFrom}
+            leaveTo={styles.leaveTo}
+          >
+            <Menu.Items className={classNames(styles.headerItemDropdown)}>
+              {item.items.map((subItem) => {
+                if (!item.url) return null;
 
-              // if the url is internal, we strip the domain
-              const url =
-                item.url.includes('myshopify.com') ||
-                item.url.includes(publicStoreDomain) ||
-                item.url.includes(primaryDomainUrl)
-                  ? new URL(item.url).pathname
-                  : item.url;
-              return (
-                <Menu.Item key={subItem.id}>
-                  {({active}) => (
-                    <a
-                      className={classNames(styles.dropdownItem, {
-                        [styles.active]: active,
-                      })}
-                      href={url}
-                    >
-                      {subItem.title}
-                    </a>
-                  )}
-                </Menu.Item>
-              );
-            })}
-          </Menu.Items>
+                // if the url is internal, we strip the domain
+                const url =
+                  item.url.includes('myshopify.com') ||
+                  item.url.includes(publicStoreDomain) ||
+                  item.url.includes(primaryDomainUrl)
+                    ? new URL(item.url).pathname
+                    : item.url;
+                return (
+                  <Menu.Item key={subItem.id}>
+                    {({active}) => (
+                      <a
+                        className={classNames(styles.dropdownItem, {
+                          [styles.active]: active,
+                        })}
+                        href={url}
+                      >
+                        {subItem.title}
+                      </a>
+                    )}
+                  </Menu.Item>
+                );
+              })}
+            </Menu.Items>
+          </Transition>
         </div>
       )}
     </Menu>
