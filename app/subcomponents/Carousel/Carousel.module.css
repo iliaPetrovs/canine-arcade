@@ -1,7 +1,7 @@
 .carouselProgress {
   display: flex;
   gap: 24px;
-  background: white;
+  background: var(--color-light);
   margin-top: 24px;
   width: 100%;
 }
@@ -9,13 +9,13 @@
 
 .carouselProgressBarBg {
   height: 4px;
-  background: #ccc;
+  background: var(--tertiary);
   width: 100%;
   }
 
 .carouselProgressBar {
   height: 4px;
-  background: purple;
+  background: var(--primary);
   width: 0;
   transition: width 350ms ease-in-out;
 }

@@ -4,12 +4,20 @@
   --cart-aside-summary-height: 250px;
   --grid-item-width: 355px;
   --header-height: 64px;
-  --color-dark: #000;
-  --color-light: #fff;
+  --color-dark: #36454F;
+  --color-light: #F8F8F8;
+  --color-accent: rgb(244, 232, 255);
+  --primary: #9784EB ;
+  --secondary: #c1acff;
+  --tertiary: #E2D9FF;
 }
 
 img {
   border-radius: 4px;
+}
+
+html {
+  background-color: var(--color-light);
 }
 
 /*
@@ -229,7 +237,7 @@ aside li {
 }
 
 .cart-summary-aside {
-  background: white;
+  background: var(--color-light);
   border-top: 1px solid var(--color-dark);
   bottom: 0;
   padding-top: 0.75rem;
