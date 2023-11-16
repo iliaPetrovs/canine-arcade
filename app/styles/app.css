@@ -330,16 +330,55 @@ aside li {
 }
 
 .recommended-products-grid {
+  padding: 24px 0;
   display: grid;
   grid-gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
+  text-align: center;
   @media (min-width: 45em) {
+    padding: 24px 48px;
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.recommended-products-grid h4 {
+  @media (min-width: 45em) {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+
+.recommended-products-grid a {
+  text-decoration: none;
+}
+
+.recommended-products-grid small {
+  @media (min-width: 45em) {
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 
 .recommended-product img {
   height: auto;
+  aspect-ratio: 1/1;
+  max-width: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.product-image-wrapper {
+  max-width: 300px;
+}
+
+.recommended-products h2 {
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.heading-2 {
+  font-size: 32px;
 }
 
 /*

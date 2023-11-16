@@ -2,7 +2,7 @@
     --slide-spacing: 1rem;
     --slide-size: 80%;
     --slide-height: 27rem;
-    padding: 1.6rem 0;
+    padding: 0 0 24px 0;
   }
   .embla__viewport {
     overflow: hidden;

@@ -73,7 +73,7 @@ a.dropdownItem:hover {
     transition: 100ms ease-out
 }
 .enterFrom {
-    transform: scale(0.95);
+    transform: scaleY(0.1);
     opacity: 0;
 }
 .enterTo {
@@ -84,10 +84,10 @@ a.dropdownItem:hover {
     transition: 70ms ease-out;
 }
 .leaveFrom {
-    transform: scale(1);
+    transform: scaleY(1);
     opacity: 100;
 }
 .leaveTo {
-    transform: scale(0.95);
+    transform: scaleY(0.1);
     opacity: 0;
 }

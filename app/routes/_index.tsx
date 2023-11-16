@@ -8,6 +8,7 @@ import type {
 } from 'storefrontapi.generated';
 import EmblaCarousel from '~/subcomponents/Carousel/Carousel';
 import type {EmblaOptionsType} from 'embla-carousel-react';
+import ProductPanel from '~/subcomponents/ProductPanel/ProductPanel';
 
 export const meta: MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -65,7 +66,7 @@ function RecommendedProducts({
   return (
     <div className="recommended-products">
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-      <h2>Recommended Products</h2>
+      <h2 className="heading-2">Featured</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {({products}) => (
@@ -76,11 +77,12 @@ function RecommendedProducts({
                   className="recommended-product"
                   to={`/products/${product.handle}`}
                 >
-                  <Image
-                    data={product.images.nodes[0]}
-                    aspectRatio="1/1"
-                    sizes="(min-width: 45em) 20vw, 50vw"
-                  />
+                  <div className="product-image-wrapper">
+                    <img
+                      alt={product.images.nodes[0].altText || 'Product'}
+                      src={product.images.nodes[0].url}
+                    />
+                  </div>
                   <h4>{product.title}</h4>
                   <small>
                     <Money data={product.priceRange.minVariantPrice} />
@@ -91,6 +93,7 @@ function RecommendedProducts({
           )}
         </Await>
       </Suspense>
+      <ProductPanel />
       <br />
     </div>
   );

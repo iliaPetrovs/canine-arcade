@@ -1,0 +1,6 @@
+.panel {
+    width: 100%;
+    @media (min-width: 967px) {
+        height: 400px;
+    }
+}
