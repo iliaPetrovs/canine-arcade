@@ -1,3 +1,8 @@
+.dropdownTitle {
+    display: flex;
+    gap: 8px;
+}
+    
 .headerItemDropdown {
     flex-direction: column;
     position: absolute;

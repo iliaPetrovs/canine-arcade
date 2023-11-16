@@ -3,6 +3,7 @@ import {Menu, Transition} from '@headlessui/react';
 import styles from './Dropdown.module.css';
 import classNames from 'classnames';
 import type {Maybe} from '@shopify/hydrogen-react/storefront-api-types';
+import {BiCaretDown, BiCaretUp} from 'react-icons/bi';
 
 type DropdownItem = {
   id: string;
@@ -34,7 +35,9 @@ const Dropdown = ({
           })}
         >
           <Menu.Button className={classNames(styles.dropdownButton)}>
-            {item.title}
+            <span className={styles.dropdownTitle}>
+              {item.title} {open ? <BiCaretUp /> : <BiCaretDown />}
+            </span>
           </Menu.Button>
           <Transition
             className={styles.absolute}
