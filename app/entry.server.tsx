@@ -10,7 +10,15 @@ export default async function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext,
 ) {
-  const {nonce, header, NonceProvider} = createContentSecurityPolicy();
+  const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+    styleSrc: [
+      "'self'",
+      'https://cdn.shopify.com',
+      'https://fonts.googleapis.com',
+      'https://fonts.gstatic.com',
+      "style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com",
+    ],
+  });
 
   const body = await renderToReadableStream(
     <NonceProvider>
