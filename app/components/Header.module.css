@@ -5,6 +5,7 @@
 .header {
     background: var(--color-light);
     @media(min-width: 967px) {
+        height: 160px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -45,7 +46,6 @@
     display: none;
     @media(min-width: 967px) {
         display: block;
-        margin-top: 90px;
         max-width: 300px;
         margin-bottom: -18px;
     }
