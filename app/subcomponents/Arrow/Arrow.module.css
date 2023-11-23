@@ -5,6 +5,10 @@
     border: 11px solid transparent;
     position: relative;
     margin: 25vh auto;
+    padding: 12px 0;
+    @media (min-width: 967px) {
+      padding: 0;
+  } 
 }
   
 .left {
