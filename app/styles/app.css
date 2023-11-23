@@ -367,11 +367,6 @@ aside li {
   object-fit: cover;
 }
 
-.product-image-wrapper {
-  margin: 0 auto;
-  max-width: 300px;
-}
-
 .recommended-products h2 {
   font-weight: 300;
   text-align: center;

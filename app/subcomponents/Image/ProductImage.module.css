@@ -1,0 +1,15 @@
+.wrapper {
+    margin: 0 auto;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.wrapper img {
+    transition: transform 250ms ease-in-out;
+}
+
+.wrapper img:hover {
+    @media(min-width: 967px) {
+        transform: scale(1.5);
+    }
+}
