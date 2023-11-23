@@ -164,7 +164,6 @@ aside li {
   @media (min-width: 45em) {
     display: flex;
     grid-gap: 1rem;
-    margin-left: 3rem;
   }
 }
 
@@ -173,10 +172,19 @@ aside li {
 }
 
 .header-ctas {
-  align-items: center;
-  display: flex;
-  grid-gap: 1rem;
-  margin-left: auto;
+  @media (min-width: 45em) {
+    align-items: center;
+    display: flex;
+    grid-gap: 1rem;
+    margin-left: auto;
+    background: var(--color-light);
+    border-radius: 50px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  }
+}
+
+.header-ctas a:hover {
+  background: rgb(227, 227, 227) !important;
 }
 
 /*

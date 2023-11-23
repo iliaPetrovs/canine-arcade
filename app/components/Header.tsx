@@ -35,6 +35,8 @@ export function Header({header, isLoggedIn, cart}: HeaderProps) {
           viewport="desktop"
           primaryDomainUrl={header.shop.primaryDomain.url}
         />
+      </div>
+      <div className={classNames(styles.navbar, styles.headerCta)}>
         <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
       </div>
     </header>
