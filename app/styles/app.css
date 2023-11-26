@@ -37,9 +37,21 @@ aside {
   transition: transform 200ms ease-in-out;
 }
 
+.menu-header {
+  font-weight: 200;
+}
+
+aside {
+  background: var(--tertiary);
+
+  @media (min-width: 967px) {
+    background: var(--color-light);
+  }
+}
+
 aside header {
   align-items: center;
-  border-bottom: 1px solid var(--color-dark);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   height: var(--header-height);
   justify-content: space-between;
@@ -51,11 +63,12 @@ aside header h3 {
 }
 
 aside header .close {
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 100;
   opacity: 0.8;
   text-decoration: none;
   transition: all 200ms;
-  width: 20px;
+  width: 32px;
 }
 
 aside header .close:hover {
@@ -161,7 +174,7 @@ aside li {
   padding: 16px 24px;
   font-size: 24px;
   color: var(--color-dark);
-  background: var(--tertiary);
+  background: var(--secondary);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -182,7 +195,7 @@ aside li {
   display: flex;
     justify-content: space-between !important;
     align-items: center;
-    
+
   @media (min-width: 967px) {
     align-items: center;
     display: flex;

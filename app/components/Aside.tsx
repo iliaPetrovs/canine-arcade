@@ -1,3 +1,4 @@
+import {IoCloseOutline} from 'react-icons/io5';
 /**
  * A side bar component with Overlay that works without JavaScript.
  * @example
@@ -28,7 +29,7 @@ export function Aside({
       />
       <aside>
         <header>
-          <h3>{heading}</h3>
+          <h3 className="menu-header">{heading}</h3>
           <CloseAside />
         </header>
         <main>{children}</main>
@@ -41,7 +42,7 @@ function CloseAside() {
   return (
     /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
     <a className="close" href="#" onChange={() => history.go(-1)}>
-      &times;
+      <IoCloseOutline />
     </a>
   );
 }
