@@ -8,6 +8,7 @@
 }
 
 .headerItemDropdown {
+    outline: none;
     flex-direction: column;
     position: relative;
     top: 8px;
@@ -71,6 +72,7 @@ a.dropdownItem::before {
 }
 
 .dropdownButton {
+    outline: none;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     color: var(--color-dark);
