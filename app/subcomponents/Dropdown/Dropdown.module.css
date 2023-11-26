@@ -1,14 +1,19 @@
 .dropdownTitle {
     display: flex;
-    gap: 8px;
+    gap: 0;
+
+    @media(min-width: 967px) {
+        gap: 8px;
+    }
 }
 
 .headerItemDropdown {
     flex-direction: column;
-    position: absolute;
+    position: relative;
     top: 8px;
     border-radius: 10px;
     @media(min-width: 967px) {
+        position: absolute;
         padding: 16px 0;
         display: flex;
         background: var(--secondary);
@@ -29,27 +34,67 @@
 
 a.dropdownItem {
     border-radius: 50px;
+    display: block;
+    padding: 16px 0;
+    border-radius: 0;
+    margin-bottom: 4px;
+    @media (min-width: 967px) {
+        padding: 8px 24px;
+        margin: 0;
+    }
 }
 a.dropdownItem:hover {
     background: var(--tertiary);
 }
+
+a.dropdownItem::before {
+    content: "";
+    display: inline-block;
+    height: 18px;
+    width: 2px;
+    background: var(--primary);
+    margin-right: 16px;
+}
+
+@media (min-width: 967px) {
+    a.dropdownItem::before {
+        display: none;
+    }
+}
 .absolute {
-    position: absolute;
+    position: relative;
     width: 100%;
+
+    @media(min-width: 967px) {
+        position: absolute;
+    }
 }
 
 .dropdownButton {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     color: var(--color-dark);
-    position: relative;
+    position: unset;
+    font-size: 24px;
+    border-radius: 50px;
+    background: none;
+    border: none;
+    padding: 0;
     @media(min-width: 967px) {
-        font-size: 16px;
+        position: relative;
         padding: 8px 24px;
         cursor: pointer;
-        border-radius: 50px;
-        background: none;
-        border: none;
+        font-size: 16px;
+    }
+}
+
+.dropdownTitle svg {
+    position: absolute;
+    right: 20px;
+
+    @media(min-width: 967px) {
+        position: relative;
+        right: 0;
     }
 }
 
