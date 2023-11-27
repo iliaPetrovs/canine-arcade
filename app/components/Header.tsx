@@ -122,7 +122,7 @@ function HeaderCtas({
       {/* <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
         {isLoggedIn ? 'Account' : 'Sign in'}
       </NavLink> */}
-      <SearchToggle />
+      {/* <SearchToggle /> */}
       <CartToggle cart={cart} />
       <HeaderMenuMobileToggle />
     </nav>

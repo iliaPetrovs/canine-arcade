@@ -1,11 +1,10 @@
 import {defer, type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link, type MetaFunction} from '@remix-run/react';
 import {Suspense} from 'react';
-import {Money} from '@shopify/hydrogen';
 import EmblaCarousel from '~/subcomponents/Carousel/Carousel';
 import type {EmblaOptionsType} from 'embla-carousel-react';
 import ProductPanel from '~/subcomponents/ProductPanel/ProductPanel';
-import ProductImage from '~/subcomponents/Image/ProductImage';
+import Card from '~/subcomponents/Card/Card';
 
 export const meta: MetaFunction = () => {
   return [{title: 'Canine Arcade'}, {description: 'Cute fings'}];
@@ -45,20 +44,7 @@ function RecommendedProducts({products}: {products: any}) {
           {(products) => (
             <div className="recommended-products-grid">
               {products.edges.map(({node: product}: any) => (
-                <Link
-                  key={product.id}
-                  className="recommended-product"
-                  to={`/products/${product.handle}`}
-                >
-                  <ProductImage
-                    altText={product.images.nodes[0].altText || 'Product'}
-                    href={product.images.nodes[0].url}
-                  />
-                  <h4>{product.title}</h4>
-                  <small>
-                    <Money data={product.priceRange.minVariantPrice} />
-                  </small>
-                </Link>
+                <Card key={product.id} product={product} />
               ))}
             </div>
           )}
