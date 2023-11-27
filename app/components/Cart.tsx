@@ -3,6 +3,7 @@ import type {CartLineUpdateInput} from '@shopify/hydrogen/storefront-api-types';
 import {Link} from '@remix-run/react';
 import type {CartApiQueryFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/utils';
+import Button from '~/subcomponents/Button/Button';
 
 type CartLine = CartApiQueryFragment['lines']['nodes'][0];
 
@@ -121,11 +122,8 @@ function CartCheckoutActions({checkoutUrl}: {checkoutUrl: string}) {
   if (!checkoutUrl) return null;
 
   return (
-    <div>
-      <a href={checkoutUrl} target="_self">
-        <p>Continue to Checkout &rarr;</p>
-      </a>
-      <br />
+    <div className="checkout-button-wrapper">
+      <Button text="Continue to Checkout" link={checkoutUrl} target="_self" />
     </div>
   );
 }

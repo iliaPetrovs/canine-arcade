@@ -28,7 +28,7 @@ import type {
 import {getVariantUrl} from '~/utils';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
-  return [{title: `Hydrogen | ${data?.product.title ?? ''}`}];
+  return [{title: `Canine Arcade | ${data?.product.title ?? ''}`}];
 };
 
 export async function loader({params, request, context}: LoaderFunctionArgs) {
@@ -312,6 +312,7 @@ function AddToCartButton({
             value={JSON.stringify(analytics)}
           />
           <button
+            className="add-to-cart-button"
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}

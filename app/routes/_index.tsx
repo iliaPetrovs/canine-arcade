@@ -8,7 +8,7 @@ import ProductPanel from '~/subcomponents/ProductPanel/ProductPanel';
 import ProductImage from '~/subcomponents/Image/ProductImage';
 
 export const meta: MetaFunction = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'Canine Arcade'}, {description: 'Cute fings'}];
 };
 
 export async function loader({context}: LoaderFunctionArgs) {

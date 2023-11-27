@@ -13,9 +13,15 @@
     }
 }
 .navbar {
+    height: 100%;
+    width: 100%;
+    display: flex;
     @media(min-width: 967px) {
         grid-gap: 24px;
         display: flex;
+        width: inherit;
+        height: inherit;
+        display: inline;
     }
 }
 .navbarProduct {
@@ -31,7 +37,7 @@
 .navbar a {
     color: var(--color-dark);
     @media(min-width: 967px) {
-        padding: 8px 24px;
+        padding: 8px 16px;
         text-decoration: none;
         transition: all 200ms ease-in-out;
     }

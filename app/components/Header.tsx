@@ -7,6 +7,7 @@ import styles from './Header.module.css';
 import classNames from 'classnames';
 import Dropdown from '~/subcomponents/Dropdown/Dropdown';
 import banner from './img/banner.png';
+import {CiShoppingCart, CiSearch} from 'react-icons/ci';
 
 type HeaderProps = Pick<LayoutProps, 'header' | 'cart' | 'isLoggedIn'>;
 
@@ -118,12 +119,12 @@ function HeaderCtas({
 }: Pick<HeaderProps, 'isLoggedIn' | 'cart'>) {
   return (
     <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
       {/* <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
         {isLoggedIn ? 'Account' : 'Sign in'}
       </NavLink> */}
       <SearchToggle />
       <CartToggle cart={cart} />
+      <HeaderMenuMobileToggle />
     </nav>
   );
 }
@@ -137,11 +138,19 @@ function HeaderMenuMobileToggle() {
 }
 
 function SearchToggle() {
-  return <a href="#search-aside">Search</a>;
+  return (
+    <a className="header-search" href="#search-aside">
+      <CiSearch />
+    </a>
+  );
 }
 
 function CartBadge({count}: {count: number}) {
-  return <a href="#cart-aside">Cart {count}</a>;
+  return (
+    <a className="cart-icon" href="#cart-aside">
+      <CiShoppingCart /> <span className="cart-count">{count}</span>
+    </a>
+  );
 }
 
 function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {

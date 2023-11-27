@@ -1,0 +1,19 @@
+.button {
+    cursor: pointer;
+    text-align: center;
+    padding: 16px 24px;
+    background: var(--primary);
+    border-radius: 1px;
+    transition: background 100ms ease-in-out;
+}
+
+.buttonText {
+    color: 000000;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background: var(--secondary);
+}
