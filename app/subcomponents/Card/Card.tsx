@@ -13,7 +13,7 @@ const Card = ({product}: CardProps) => {
   return (
     <Link
       key={product.id}
-      className="recommended-product"
+      className={styles.product}
       to={`/products/${product.handle}`}
     >
       <ProductImage

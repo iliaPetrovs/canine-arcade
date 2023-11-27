@@ -17,6 +17,14 @@ export function Header({header, isLoggedIn, cart}: HeaderProps) {
   const {shop, menu} = header;
   return (
     <header className={classNames('header', styles.header)}>
+      <div className={styles.daddyStripe}>
+        <div className={styles.stripe} />
+        <div className={styles.stripe} />
+        <div className={styles.stripe} />
+        <div className={styles.stripe} />
+        <div className={styles.stripe} />
+        <div className={styles.stripe} />
+      </div>
       <NavLink
         className={styles.headerLogo}
         prefetch="intent"

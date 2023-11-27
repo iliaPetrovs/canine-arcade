@@ -425,14 +425,6 @@ aside li {
   }
 }
 
-.recommended-product img {
-  height: auto;
-  aspect-ratio: 1/1;
-  max-width: 100%;
-  width: auto;
-  object-fit: cover;
-}
-
 .recommended-products h2 {
   font-weight: 300;
   text-align: center;
