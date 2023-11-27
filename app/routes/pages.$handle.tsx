@@ -1,6 +1,7 @@
 import {type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {useLoaderData, type MetaFunction} from '@remix-run/react';
 import Card from '~/subcomponents/Card/Card';
+import Line from '~/subcomponents/Line/Line';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [{title: `Canine Arcade`}];
@@ -11,7 +12,13 @@ export async function loader({params, context}: LoaderFunctionArgs) {
     throw new Error('Missing page handle');
   }
 
-  const {collection} = await context.storefront.query(PAGE_QUERY, {
+  const {collection} = await context.storefront.query(PRODUCT_QUERY, {
+    variables: {
+      handle: params.handle,
+    },
+  });
+
+  const {collection: page} = await context.storefront.query(PAGE_QUERY, {
     variables: {
       handle: params.handle,
     },
@@ -21,27 +28,34 @@ export async function loader({params, context}: LoaderFunctionArgs) {
     throw new Response('Not Found', {status: 404});
   }
 
-  return collection;
+  return {collection, page};
 }
 
 export default function Page() {
   const {
-    products: {edges},
+    collection: {
+      products: {edges},
+    },
+    page,
   } = useLoaderData<typeof loader>();
 
   return (
     <div className="page">
       <header>
-        <h1>Hello</h1>
+        <h1 className="header-1">{page.title}</h1>
+        <p className="body-copy-1">{page.description}</p>
       </header>
+      <Line />
       <div className="recommended-products-grid">
-        {...edges.map(({node}) => <Card key={node.title} product={node} />)}
+        {[...edges, ...edges].map(({node}) => (
+          <Card key={node.title} product={node} />
+        ))}
       </div>
     </div>
   );
 }
 
-const PAGE_QUERY = `#graphql
+const PRODUCT_QUERY = `#graphql
 query Products ($country: CountryCode, $language: LanguageCode)
   @inContext(country: $country, language: $language) {
   collection(handle: "Clothing") {
@@ -72,3 +86,17 @@ query Products ($country: CountryCode, $language: LanguageCode)
   }
 }
 ` as const;
+
+const PAGE_QUERY = `#graphql
+query Collection($handle: String!) {
+  collection(handle: $handle) {
+    description
+    id
+    image {
+      altText
+      url
+    }
+    title
+  }
+}
+  ` as const;
