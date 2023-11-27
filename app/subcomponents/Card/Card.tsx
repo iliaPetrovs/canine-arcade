@@ -1,12 +1,11 @@
 import {Link} from '@remix-run/react';
-import type {Product} from '@shopify/hydrogen-react/storefront-api-types';
 import ProductImage from '../Image/ProductImage';
 import {Money} from '@shopify/hydrogen-react';
 
 import styles from './Card.module.css';
 
 type CardProps = {
-  product: Product;
+  product: any;
 };
 
 const Card = ({product}: CardProps) => {
@@ -15,10 +14,20 @@ const Card = ({product}: CardProps) => {
       key={product.id}
       className={styles.product}
       to={`/products/${product.handle}`}
+      prefetch="intent"
     >
       <ProductImage
-        altText={product.images.nodes[0].altText || 'Product'}
-        href={product.images.nodes[0].url}
+        altText={
+          (product.featuredImage || product.images.nodes[0]).altText ||
+          'Product'
+        }
+        href={
+          (
+            product?.featuredImage ||
+            product.featuredImage ||
+            product.images.nodes[0]
+          )?.url
+        }
       />
       <h4>{product.title}</h4>
       <small>

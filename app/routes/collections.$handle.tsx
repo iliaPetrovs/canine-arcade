@@ -8,9 +8,12 @@ import {
 } from '@shopify/hydrogen';
 import type {ProductItemFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/utils';
+import Card from '~/subcomponents/Card/Card';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
-  return [{title: `Canine Arcade | ${data?.collection.title ?? ''} Collection`}];
+  return [
+    {title: `Canine Arcade | ${data?.collection.title ?? ''} Collection`},
+  ];
 };
 
 export async function loader({request, params, context}: LoaderFunctionArgs) {
@@ -40,19 +43,29 @@ export default function Collection() {
   const {collection} = useLoaderData<typeof loader>();
 
   return (
-    <div className="collection">
-      <h1>{collection.title}</h1>
-      <p className="collection-description">{collection.description}</p>
+    <div className="page">
+      <header>
+        <h1 className="header-1">Shop {collection.title}</h1>
+        <p className="body-copy-1 btm-5">{collection.description}</p>
+      </header>
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
             <PreviousLink>
-              {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
+              {isLoading ? (
+                'Loading...'
+              ) : (
+                <span className="load-more">↑ Load previous</span>
+              )}
             </PreviousLink>
             <ProductsGrid products={nodes} />
             <br />
             <NextLink>
-              {isLoading ? 'Loading...' : <span>Load more ↓</span>}
+              {isLoading ? (
+                'Loading...'
+              ) : (
+                <span className="load-more">Load more ↓</span>
+              )}
             </NextLink>
           </>
         )}
@@ -63,15 +76,9 @@ export default function Collection() {
 
 function ProductsGrid({products}: {products: ProductItemFragment[]}) {
   return (
-    <div className="products-grid">
-      {products.map((product, index) => {
-        return (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
-          />
-        );
+    <div className="recommended-products-grid">
+      {products.map((product) => {
+        return <Card key={product.id} product={product} />;
       })}
     </div>
   );

@@ -149,7 +149,7 @@ aside li {
   background: #fff;
   display: flex;
   height: var(--header-height);
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   position: sticky;
   top: 0;
   z-index: 1;
@@ -199,7 +199,7 @@ aside li {
 .header-ctas {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   @media (min-width: 967px) {
@@ -250,7 +250,7 @@ aside li {
 */
 .cart-main {
   overflow-x: hidden;
-  padding: 0 12px;
+  margin: 0 16px;
   height: 100%;
   max-height: calc(100vh - var(--cart-aside-summary-height));
   overflow-y: auto;
@@ -299,9 +299,9 @@ aside li {
   position: relative;
 }
 
-/* .checkout-button-wrapper {
-  padding: 8px;
-} */
+.checkout-button-wrapper {
+  width: 100%;
+}
 
 .cart-summary-aside {
   background: var(--tertiary);
@@ -448,6 +448,34 @@ aside li {
   }
 }
 
+.load-more {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 42px;
+  border-radius: 50px;
+  padding: 16px 0;
+  transition: all 250ms ease-in;
+}
+
+.load-more:hover {
+  background: var(--primary);
+  color: var(--color-light);
+
+}
+
+.btm-3 {
+  margin-bottom: 24px;
+}
+.btm-4 {
+  margin-bottom: 32px;
+}
+.btm-5 {
+  margin-bottom: 40px;
+}
+
 .body-copy-1 {
   font-size: 18px;
   font-weight: 500;
@@ -505,20 +533,24 @@ aside li {
 * --------------------------------------------------
 */
 .product {
-  display: grid;
   padding: 0;
+  width: 100%;
+  display: grid;
   @media (min-width: 45em) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 4rem;
+    width: 60%;
+    margin: 0 auto;
     padding: 48px 0;
   }
 }
 
 .add-to-cart-button {
   cursor: pointer;
+  font-size: 18px;
   border: none;
   background: var(--primary);
-  padding: 12px 24px;
+  padding: 18px 0;
   color: var(--color-light);
   border-radius: 1px;
   transition: background 100ms ease-in-out;
@@ -545,6 +577,32 @@ aside li {
 .product-image img {
   height: auto;
   width: 100%;
+  object-fit: contain;
+  @media (min-width: 967px) {
+    height: 400px;
+    width: 400px;
+  }
+}
+
+.product-description-header {
+  padding: 0 20px;
+  position: relative;
+}
+
+.product-description-header::before {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  opacity: 1;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  background: var(--tertiary);
+}
+
+.product-description {
+  padding: 0 16px;
+  border-left: 3px solid var(--primary);
 }
 
 .product-main {

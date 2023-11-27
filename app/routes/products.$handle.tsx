@@ -184,11 +184,16 @@ function ProductMain({
       </Suspense>
       <br />
       <br />
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+      <div className="product-description-wrapper">
+        <p className="product-description-header">
+          <strong>Description</strong>
+        </p>
+        <br />
+        <div
+          className="product-description"
+          dangerouslySetInnerHTML={{__html: descriptionHtml}}
+        />
+      </div>
       <br />
     </div>
   );

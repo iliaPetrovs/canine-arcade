@@ -50,15 +50,15 @@ const Dropdown = ({
           >
             <Menu.Items className={classNames(styles.headerItemDropdown)}>
               {item.items.map((subItem) => {
-                if (!item.url) return null;
+                if (!subItem.url) return null;
 
                 // if the url is internal, we strip the domain
                 const url =
-                  item.url.includes('myshopify.com') ||
-                  item.url.includes(publicStoreDomain) ||
-                  item.url.includes(primaryDomainUrl)
-                    ? new URL(item.url).pathname
-                    : item.url;
+                  subItem.url.includes('myshopify.com') ||
+                  subItem.url.includes(publicStoreDomain) ||
+                  subItem.url.includes(primaryDomainUrl)
+                    ? new URL(subItem.url).pathname
+                    : subItem.url;
                 return (
                   <Menu.Item key={subItem.id}>
                     {({active}) => (

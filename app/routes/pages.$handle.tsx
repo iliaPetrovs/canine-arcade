@@ -47,7 +47,7 @@ export default function Page() {
       </header>
       <Line />
       <div className="recommended-products-grid">
-        {[...edges, ...edges].map(({node}) => (
+        {edges.map(({node}) => (
           <Card key={node.title} product={node} />
         ))}
       </div>

@@ -8,11 +8,9 @@ type ButtonProps = {
 
 const Button = ({text, link, target}: ButtonProps) => {
   return (
-    <div className={styles.button}>
-      <a className={styles.buttonText} href={link} target={target}>
-        Continue to Checkout
-      </a>
-    </div>
+    <a className={styles.buttonText} href={link} target={target}>
+      Continue to Checkout
+    </a>
   );
 };
 
