@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import React, {Suspense, useState} from 'react';
 import {defer, redirect, type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {
   Await,
@@ -26,6 +26,8 @@ import type {
   SelectedOption,
 } from '@shopify/hydrogen/storefront-api-types';
 import {getVariantUrl} from '~/utils';
+import type {CarouselImage} from '~/subcomponents/ImageCarousel/ImageCarousel';
+import ImageCarousel from '~/subcomponents/ImageCarousel/ImageCarousel';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [{title: `Canine Arcade | ${data?.product.title ?? ''}`}];
@@ -118,7 +120,10 @@ export default function Product() {
   const {selectedVariant} = product;
   return (
     <div className="product">
-      <ProductImage image={selectedVariant?.image} />
+      <ProductImage
+        image={selectedVariant?.image}
+        images={product.images.nodes}
+      />
       <ProductMain
         selectedVariant={selectedVariant}
         product={product}
@@ -128,19 +133,33 @@ export default function Product() {
   );
 }
 
-function ProductImage({image}: {image: ProductVariantFragment['image']}) {
+function ProductImage({
+  image,
+  images,
+}: {
+  image: ProductVariantFragment['image'];
+  images: CarouselImage[];
+}) {
   if (!image) {
     return <div className="product-image" />;
   }
+  const [defImage, setDefImage] = useState({
+    altText: image.altText,
+    url: image.url,
+  });
+  const handleClick = (image: CarouselImage) => {
+    setDefImage(image);
+  };
   return (
     <div className="product-image">
       <Image
-        alt={image.altText || 'Product Image'}
+        alt={defImage.altText || 'Product Image'}
         aspectRatio="1/1"
-        data={image}
+        data={defImage}
         key={image.id}
         sizes="(min-width: 45em) 50vw, 100vw"
       />
+      {images && <ImageCarousel images={images} handleClick={handleClick} />}
     </div>
   );
 }
@@ -390,6 +409,12 @@ const PRODUCT_FRAGMENT = `#graphql
     seo {
       description
       title
+    }
+    images(first: 3) {
+      nodes {
+        url
+        altText
+      }
     }
   }
   ${PRODUCT_VARIANT_FRAGMENT}

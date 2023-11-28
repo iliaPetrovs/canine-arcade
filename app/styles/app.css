@@ -149,7 +149,6 @@ aside li {
   background: #fff;
   display: flex;
   height: var(--header-height);
-  /* padding: 0 1rem; */
   position: sticky;
   top: 0;
   z-index: 1;
@@ -572,6 +571,16 @@ aside li {
 .product-images {
   display: grid;
   grid-gap: 1rem;
+}
+
+.product-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: 967px) {
+    flex-direction: row;
+  }
 }
 
 .product-image img {
