@@ -1,11 +1,11 @@
-import image1 from './image/mawbanner.avif';
-import image2 from './image/image2.jpeg';
-import image3 from './image/image1.jpeg';
+import image1 from './image/makeup.png';
+import image2 from './image/bags.png';
+import image3 from './image/clothing.png';
 
 export const images: Record<string, string>[] = [
-  {image: image1, href: '/products/wolf-maw-ita-bag'},
-  {image: image2, href: '/ello'},
-  {image: image3, href: '/wot'},
+  {image: image1, href: '/collections/clothing'},
+  {image: image2, href: '/collections/bags'},
+  {image: image3, href: '/collections/accessories-makeup'},
 ];
 
 export const imageByIndex = (index: number): string =>
