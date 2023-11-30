@@ -19,7 +19,7 @@ import {
   type ShouldRevalidateFunction,
 } from '@remix-run/react';
 import type {CustomerAccessToken} from '@shopify/hydrogen/storefront-api-types';
-import favicon from '../public/favicon.svg';
+import favicon from '../public/favicon.ico';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import emblaStyles from './styles/embla.css';
@@ -116,6 +116,7 @@ export async function loader({context}: LoaderFunctionArgs) {
       header: await headerPromise,
       isLoggedIn,
       publicStoreDomain,
+      country: storefront.i18n.country,
     },
     {headers},
   );
@@ -124,6 +125,7 @@ export async function loader({context}: LoaderFunctionArgs) {
 export default function App() {
   const nonce = useNonce();
   const data = useLoaderData<typeof loader>();
+  console.log(data.country);
 
   return (
     <html lang="en">
