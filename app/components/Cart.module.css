@@ -1,0 +1,32 @@
+.quantity {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.quantity:hover svg {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.cartLineQuantity {
+    display: flex;
+    align-items: center;
+}
+
+.apply {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.apply:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

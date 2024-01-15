@@ -4,6 +4,10 @@ import {Link} from '@remix-run/react';
 import type {CartApiQueryFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/utils';
 import Button from '~/subcomponents/Button/Button';
+import {CiSquarePlus, CiSquareMinus, CiTrash} from 'react-icons/ci';
+
+import styles from './Cart.module.css';
+import classNames from 'classnames';
 
 type CartLine = CartApiQueryFragment['lines']['nodes'][0];
 
@@ -103,15 +107,6 @@ function CartLineItem({
           </p>
         </Link>
         <CartLinePrice line={line} as="span" />
-        <ul>
-          {selectedOptions.map((option) => (
-            <li key={option.name}>
-              <small>
-                {option.name}: {option.value}
-              </small>
-            </li>
-          ))}
-        </ul>
         <CartLineQuantity line={line} />
       </div>
     </li>
@@ -165,7 +160,17 @@ function CartLineRemoveButton({lineIds}: {lineIds: string[]}) {
       action={CartForm.ACTIONS.LinesRemove}
       inputs={{lineIds}}
     >
-      <button type="submit">Remove</button>
+      <button className={styles.quantity} type="submit">
+        <CiTrash
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: '0',
+            left: '0',
+          }}
+        />
+      </button>
     </CartForm>
   );
 }
@@ -177,26 +182,44 @@ function CartLineQuantity({line}: {line: CartLine}) {
   const nextQuantity = Number((quantity + 1).toFixed(0));
 
   return (
-    <div className="cart-line-quantiy">
+    <div className={classNames('cart-line-quantiy', styles.cartLineQuantity)}>
       <small>Quantity: {quantity} &nbsp;&nbsp;</small>
       <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
         <button
+          className={styles.quantity}
           aria-label="Decrease quantity"
           disabled={quantity <= 1}
           name="decrease-quantity"
           value={prevQuantity}
         >
-          <span>&#8722; </span>
+          <CiSquareMinus
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              top: '0',
+              left: '0',
+            }}
+          />
         </button>
       </CartLineUpdateButton>
       &nbsp;
       <CartLineUpdateButton lines={[{id: lineId, quantity: nextQuantity}]}>
         <button
+          className={styles.quantity}
           aria-label="Increase quantity"
           name="increase-quantity"
           value={nextQuantity}
         >
-          <span>&#43;</span>
+          <CiSquarePlus
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              top: '0',
+              left: '0',
+            }}
+          />
         </button>
       </CartLineUpdateButton>
       &nbsp;
@@ -292,7 +315,9 @@ function CartDiscounts({
         <div>
           <input type="text" name="discountCode" placeholder="Discount code" />
           &nbsp;
-          <button type="submit">Apply</button>
+          <button className={styles.apply} type="submit">
+            Apply
+          </button>
         </div>
       </UpdateDiscountForm>
     </div>
