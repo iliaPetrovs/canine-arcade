@@ -5,6 +5,9 @@ import EmblaCarousel from '~/subcomponents/Carousel/Carousel';
 import type {EmblaOptionsType} from 'embla-carousel-react';
 import ProductPanel from '~/subcomponents/ProductPanel/ProductPanel';
 import Card from '~/subcomponents/Card/Card';
+import Footer from '~/components/Footer';
+import 'flexboxgrid/css/flexboxgrid.min.css';
+import Section from '~/components/Section';
 
 export const meta: MetaFunction = () => {
   return [{title: 'Canine Arcade'}, {description: 'Cute fings'}];
@@ -38,20 +41,25 @@ function RecommendedProducts({products}: {products: any}) {
   return (
     <div className="recommended-products">
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-      <h2 className="header-1">Featured</h2>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={products}>
-          {(products) => (
-            <div className="recommended-products-grid">
-              {products.edges.map(({node: product}: any) => (
-                <Card key={product.id} product={product} />
-              ))}
-            </div>
-          )}
-        </Await>
-      </Suspense>
+      <Section>
+        <h2 className="header-1">Featured</h2>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Await resolve={products}>
+            {(products) => (
+              <div className="row text-center">
+                {products.edges.map(({node: product}: any) => (
+                  <Card key={product.id} product={product} />
+                ))}
+              </div>
+            )}
+          </Await>
+        </Suspense>
+      </Section>
       <ProductPanel />
       <br />
+      {/* <Section>
+        <Footer />
+      </Section> */}
     </div>
   );
 }
