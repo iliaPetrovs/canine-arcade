@@ -9,6 +9,7 @@ import {
 import type {ProductItemFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/utils';
 import Card from '~/subcomponents/Card/Card';
+import Section from '~/components/Section';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [
@@ -43,40 +44,42 @@ export default function Collection() {
   const {collection} = useLoaderData<typeof loader>();
 
   return (
-    <div className="page">
-      <header>
-        <h1 className="header-1">Shop {collection.title}</h1>
-        <p className="body-copy-1 btm-5">{collection.description}</p>
-      </header>
-      <Pagination connection={collection.products}>
-        {({nodes, isLoading, PreviousLink, NextLink}) => (
-          <>
-            <PreviousLink>
-              {isLoading ? (
-                'Loading...'
-              ) : (
-                <span className="load-more">↑ Load previous</span>
-              )}
-            </PreviousLink>
-            <ProductsGrid products={nodes} />
-            <br />
-            <NextLink>
-              {isLoading ? (
-                'Loading...'
-              ) : (
-                <span className="load-more">Load more ↓</span>
-              )}
-            </NextLink>
-          </>
-        )}
-      </Pagination>
-    </div>
+    <Section>
+      <div className="page">
+        <header>
+          <h1 className="header-1">Shop {collection.title}</h1>
+          <p className="body-copy-1 btm-5">{collection.description}</p>
+        </header>
+        <Pagination connection={collection.products}>
+          {({nodes, isLoading, PreviousLink, NextLink}) => (
+            <>
+              <PreviousLink>
+                {isLoading ? (
+                  'Loading...'
+                ) : (
+                  <span className="load-more">↑ Load previous</span>
+                )}
+              </PreviousLink>
+              <ProductsGrid products={nodes} />
+              <br />
+              <NextLink>
+                {isLoading ? (
+                  'Loading...'
+                ) : (
+                  <span className="load-more">Load more ↓</span>
+                )}
+              </NextLink>
+            </>
+          )}
+        </Pagination>
+      </div>
+    </Section>
   );
 }
 
 function ProductsGrid({products}: {products: ProductItemFragment[]}) {
   return (
-    <div className="recommended-products-grid">
+    <div className="row text-center">
       {products.map((product) => {
         return <Card key={product.id} product={product} />;
       })}

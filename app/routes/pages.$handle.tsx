@@ -46,7 +46,7 @@ export default function Page() {
         <p className="body-copy-1">{page.description}</p>
       </header>
       <Line />
-      <div className="recommended-products-grid">
+      <div className="row text-center">
         {edges.map(({node}) => (
           <Card key={node.title} product={node} />
         ))}
