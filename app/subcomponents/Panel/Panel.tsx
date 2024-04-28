@@ -7,14 +7,12 @@ import styles from './Panel.module.css';
 import Arrow from '../Arrow/Arrow';
 import {useEffect, useState} from 'react';
 import {useNavigate} from '@remix-run/react';
+import type {PanelCollection} from '../ProductPanel/ProductPanel';
 
 const mobileCutoff = 967;
 
 type PanelProps = {
-  collection: {
-    name: string;
-    href: string;
-  };
+  collection: PanelCollection;
   handleClick: (index: number) => void;
   isActive: boolean;
   index: number;
@@ -22,7 +20,7 @@ type PanelProps = {
 };
 
 const Panel = ({
-  collection: {name, href},
+  collection: {name, collectionName, href},
   handleClick,
   isActive,
   index,
@@ -54,7 +52,7 @@ const Panel = ({
 
   const handleContainerClick = () => {
     if (isActive || isMobile) {
-      navigate(`/pages/${name.toLowerCase()}`);
+      navigate(`/pages/${collectionName.toLowerCase()}`);
     }
     handleClick(index);
   };

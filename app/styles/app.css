@@ -434,13 +434,20 @@ aside li {
   text-align: center;
 }
 
-.heading-2 {
+.header-2 {
   font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media(min-width: 967px) {
+    font-size: 60px;
+  }
 }
 
 .header-1 {
   font-size: 48px;
-  font-weight: 300;
+  font-weight: 600;
+  text-transform: uppercase;
 
   @media(min-width: 967px) {
     font-size: 72px;

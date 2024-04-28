@@ -38,7 +38,7 @@ function RecommendedProducts({products}: {products: any}) {
   return (
     <div className="recommended-products">
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-      <h2 className="heading-2">Featured</h2>
+      <h2 className="header-1">Featured</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {(products) => (
