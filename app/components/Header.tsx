@@ -71,6 +71,41 @@ export function HeaderMenu({
     }
   }
 
+  const fursuitMenu = {
+    id: 'gid://shopify/MenuItem/461609500728',
+    resourceId: null,
+    tags: [],
+    title: 'Fursuits',
+    type: 'HTTP',
+    url: '/fursuits',
+    items: [
+      {
+        id: 'fursuit-pricing',
+        resourceId: null,
+        tags: [],
+        title: 'Fursuit pricing',
+        type: 'HTTP',
+        url: '/pricing',
+        items: [],
+      },
+      {
+        id: 'fursuit-gallery',
+        resourceId: null,
+        tags: [],
+        title: 'Fursuit gallery',
+        type: 'HTTP',
+        url: '/fursuits',
+        items: [],
+      },
+    ],
+  };
+
+  const newMenu = {
+    ...menu,
+    // eslint-disable-next-line no-unsafe-optional-chaining
+    items: [...menu?.items, fursuitMenu],
+  };
+
   return (
     <nav
       className={classNames(className, styles.navbarProduct)}
@@ -87,7 +122,7 @@ export function HeaderMenu({
           Home
         </NavLink>
       )}
-      {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
+      {(newMenu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
         // if the url is internal, we strip the domain

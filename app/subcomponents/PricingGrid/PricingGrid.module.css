@@ -1,0 +1,82 @@
+.status {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin: 40px auto;
+}
+
+.pricing {
+    background: var(--tertiary);
+    border-radius: 50px;
+    color: var(--color-dark);
+}
+
+.pricingWrapper {
+    padding: 16px 32px;
+
+    @media (min-width: 1200px) {
+        padding: 32px 64px;
+    }
+}
+
+.prices {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-dark);
+    font-weight: 600;
+    margin: 24px auto;
+}
+
+.pricingInfo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 32px;
+}
+
+.image {
+    width: calc(100% - 20px);
+    border: 10px solid black;
+    border-radius: 0 !important;
+
+    @media (min-width: 1200px) {
+        width: 90%;
+    }
+}
+
+.imageWrapper {
+    position: relative;
+    margin: 0 auto;
+}
+
+.imageContainer {   
+    position: relative;
+    margin-bottom: 32px;
+    @media (min-width: 1200px) {
+        position: absolute;
+        margin-bottom: 0;
+    }
+}
+
+.imageHeader {
+    background: var(--secondary);
+    width: calc(100% - 20px);
+    border: 10px solid black;
+    border-bottom: none;
+    height: 30px;
+
+    @media (min-width: 1200px) {
+        width: 90%;
+    }
+}
+
+.cross {
+    background: var(--color-light);
+    width: 30px;
+    justify-content: center;
+    display: flex;
+    border-right: 10px solid black;
+    height: 30px;
+    align-items: center;
+}
