@@ -28,6 +28,7 @@ import type {
 import {getVariantUrl} from '~/utils';
 import type {CarouselImage} from '~/subcomponents/ImageCarousel/ImageCarousel';
 import ImageCarousel from '~/subcomponents/ImageCarousel/ImageCarousel';
+import Section from '~/components/Section';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [{title: `Canine Arcade | ${data?.product.title ?? ''}`}];
@@ -119,17 +120,19 @@ export default function Product() {
   const {product, variants} = useLoaderData<typeof loader>();
   const {selectedVariant} = product;
   return (
-    <div className="product">
-      <ProductImage
-        image={selectedVariant?.image}
-        images={product.images.nodes}
-      />
-      <ProductMain
-        selectedVariant={selectedVariant}
-        product={product}
-        variants={variants}
-      />
-    </div>
+    <Section>
+      <div className="row">
+        <ProductImage
+          image={selectedVariant?.image}
+          images={product.images.nodes}
+        />
+        <ProductMain
+          selectedVariant={selectedVariant}
+          product={product}
+          variants={variants}
+        />
+      </div>
+    </Section>
   );
 }
 
@@ -151,7 +154,7 @@ function ProductImage({
     setDefImage(image);
   };
   return (
-    <div className="product-image">
+    <div className="product-image col-xs-12 col-md-6">
       <Image
         alt={defImage.altText || 'Product Image'}
         aspectRatio="1/1"
@@ -175,7 +178,7 @@ function ProductMain({
 }) {
   const {title, descriptionHtml} = product;
   return (
-    <div className="product-main">
+    <div className="product-main col-xs-12 col-md-6">
       <h1>{title}</h1>
       <ProductPrice selectedVariant={selectedVariant} />
       <br />

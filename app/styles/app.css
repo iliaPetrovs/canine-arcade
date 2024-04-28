@@ -448,9 +448,11 @@ aside li {
   font-size: 48px;
   font-weight: 600;
   text-transform: uppercase;
+  margin-bottom: 24px !important;
 
   @media(min-width: 967px) {
     font-size: 72px;
+    margin-bottom: 32px !important;
   }
 }
 
@@ -585,7 +587,7 @@ aside li {
   flex-direction: column;
   justify-content: center;
 
-  @media (min-width: 967px) {
+  @media (min-width: 992px) {
     flex-direction: row;
   }
 }
@@ -594,7 +596,7 @@ aside li {
   height: auto;
   width: 100%;
   object-fit: contain;
-  @media (min-width: 967px) {
+  @media (min-width: 992px) {
     height: 400px;
     width: 400px;
   }

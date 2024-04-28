@@ -57,9 +57,6 @@ function RecommendedProducts({products}: {products: any}) {
       </Section>
       <ProductPanel />
       <br />
-      {/* <Section>
-        <Footer />
-      </Section> */}
     </div>
   );
 }
