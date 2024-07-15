@@ -37,25 +37,28 @@ const PricingGrid = () => {
                 Commissions for custom fursuits are currently closed - but you
                 can stay up to date with commission openings and premades for
                 sale via Twitter announcements and my Telegram channel. To see
-                my current queue, view my Trello.
+                my current queue,{' '}
+                <a href="https://trello.com/b/JXvvV37m/current-projects">
+                  view my Trello.
+                </a>
               </p>
               <p className={styles.prices}>Current starting prices</p>
               <BubbleTitle
-                title="Head Only: £2500"
+                title="Head Only: £4000"
                 small={true}
                 color={'light'}
                 stretch
               />
               <br />
               <BubbleTitle
-                title="Partial: £3000"
+                title="Partial: £5000"
                 small={true}
                 color={'light'}
                 stretch
               />
               <br />
               <BubbleTitle
-                title="Fullbody: £5500"
+                title="Fullbody: £9000"
                 small={true}
                 color={'light'}
                 stretch
