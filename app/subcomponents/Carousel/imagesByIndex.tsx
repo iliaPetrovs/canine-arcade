@@ -1,6 +1,6 @@
-import image1 from './image/makeup.png';
-import image2 from './image/bags.png';
-import image3 from './image/clothing.png';
+import image1 from './image/image1.png';
+import image2 from './image/image2.png';
+import image3 from './image/image3.png';
 
 export const images: Record<string, string>[] = [
   {image: image1, href: '/collections/accessories-makeup'},

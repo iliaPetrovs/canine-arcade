@@ -69,13 +69,16 @@ const EmblaCarousel: React.FC<PropType> = ({slides, options}) => {
                     }),
                   }}
                 >
-                  <a href={hrefByIndex(index)}>
-                    <img
-                      className="embla__slide__img embla__parallax__img"
-                      src={imageByIndex(index)}
-                      alt="Your alt text"
-                    />
-                  </a>
+                  {/* <a href={hrefByIndex(index)}> */}
+                  <img
+                    className={classNames(
+                      'embla__slide__img embla__parallax__img',
+                      styles.image,
+                    )}
+                    src={imageByIndex(index)}
+                    alt="Your alt text"
+                  />
+                  {/* </a> */}
                 </div>
               </div>
             </div>

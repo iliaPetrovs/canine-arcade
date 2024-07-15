@@ -23,3 +23,12 @@
 .scrolledTo {
   width: 100%;
 }
+
+.image {
+  height: 100%;
+  
+  @media (max-width: 768px) {
+    object-fit: contain;
+    width: 100%;
+  }
+}
