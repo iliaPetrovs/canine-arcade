@@ -19,7 +19,7 @@ const content = (
       arrange between us how to get the suit to you - whether that’s collection
       or shipping etc.{' '}
     </div>
-    <BubbleTitle stretch small title="Payment andrefunds" />
+    <BubbleTitle stretch small title="Payment and refunds" />
     <div className="text-copy">
       Payment for your suit is not required until I get to your slot. At this
       stage, I’ll ask for 50% upfront, with the second 50% required upon suit
