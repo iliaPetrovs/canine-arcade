@@ -9,6 +9,10 @@ import {IoCloseOutline} from 'react-icons/io5';
  * </Aside>
  * ```
  */
+
+import styles from './Header.module.css';
+import classNames from 'classnames';
+
 export function Aside({
   children,
   heading,
@@ -19,7 +23,12 @@ export function Aside({
   id?: string;
 }) {
   return (
-    <div aria-modal className="overlay" id={id} role="dialog">
+    <div
+      aria-modal
+      className={classNames('overlay', styles.aside)}
+      id={id}
+      role="dialog"
+    >
       <button
         className="close-outside"
         onClick={() => {
@@ -32,7 +41,7 @@ export function Aside({
           <h3 className="menu-header">{heading}</h3>
           <CloseAside />
         </header>
-        <main>{children}</main>
+        <main className={styles.mobileNavLinks}>{children}</main>
       </aside>
     </div>
   );

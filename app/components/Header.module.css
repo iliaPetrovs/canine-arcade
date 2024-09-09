@@ -3,7 +3,7 @@
     }
 }
 .header {
-    background: var(--color-light);
+    background: var(--secondary);
     overflow-x: hidden;
     z-index: 9;
     @media(min-width: 967px) {
@@ -106,4 +106,12 @@
 
 .announcementBanner p {
     margin-top: 2px;
+}
+
+.aside {
+    z-index: 101;
+}
+
+.mobileNavLinks {
+    padding-left: 16px;
 }

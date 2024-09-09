@@ -35,9 +35,9 @@ const Dropdown = ({
           })}
         >
           <Menu.Button className={classNames(styles.dropdownButton)}>
-            <span className={styles.dropdownTitle}>
+            <div className={styles.dropdownTitle}>
               {item.title} {open ? <BiCaretUp /> : <BiCaretDown />}
-            </span>
+            </div>
           </Menu.Button>
           <Transition
             className={styles.absolute}

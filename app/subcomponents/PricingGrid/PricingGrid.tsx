@@ -36,8 +36,17 @@ const PricingGrid = () => {
               <p className="m-t-3">
                 Commissions for custom fursuits are currently closed - but you
                 can stay up to date with commission openings and premades for
-                sale via Twitter announcements and my Telegram channel. To see
-                my current queue,{' '}
+                sale via Twitter announcements and my{' '}
+                <a href="https://t.me/caninearcade">Telegram channel</a>.
+                <br />
+                <br />I am extremely careful and picky with my suits, often
+                taking months to perfect them, using unique methods that take
+                long but produce impressively high quality results. I will
+                always redo elements and take time making sure that everything
+                is absolutely perfect - because of this, I can not accurately
+                predict when I will finish current suits and next open for
+                commissions, but I only take on 1-2 suits at a time. To see my
+                current queue,{' '}
                 <a href="https://trello.com/b/JXvvV37m/current-projects">
                   view my Trello.
                 </a>

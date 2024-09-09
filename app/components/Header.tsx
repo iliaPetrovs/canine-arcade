@@ -20,14 +20,14 @@ export function Header({header, isLoggedIn, cart}: HeaderProps) {
     <>
       <Banner />
       <header className={classNames('header', styles.header)}>
-        <div className={styles.daddyStripe}>
+        {/* <div className={styles.daddyStripe}>
           <div className={styles.stripe} />
           <div className={styles.stripe} />
           <div className={styles.stripe} />
           <div className={styles.stripe} />
           <div className={styles.stripe} />
           <div className={styles.stripe} />
-        </div>
+        </div> */}
         <NavLink
           className={styles.headerLogo}
           prefetch="intent"

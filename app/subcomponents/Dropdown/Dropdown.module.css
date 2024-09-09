@@ -72,6 +72,7 @@ a.dropdownItem::before {
 }
 
 .dropdownButton {
+    width: 100%;
     outline: none;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
