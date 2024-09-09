@@ -1,15 +1,52 @@
 .wrapper {
-    margin: 0 auto;
-    max-width: 300px;
-    overflow: hidden;
+  margin: 0 auto;
+  max-width: 300px;
+  overflow: hidden;
 }
 
 .wrapper img {
-    transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  position: relative;
 }
 
 .wrapper img:hover {
-    @media(min-width: 967px) {
-        transform: scale(1.5);
-    }
+  @media (min-width: 967px) {
+    transform: scale(1.5);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.skeletonImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: lightgrey;
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    lightgrey;
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1.5s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+
+.isLoading {
+    display: none;
 }
