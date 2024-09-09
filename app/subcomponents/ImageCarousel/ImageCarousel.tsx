@@ -23,6 +23,7 @@ const ImageCarousel = ({images, handleClick}: ImageCarouselProps) => {
           data={image}
           key={index}
           sizes="(min-width: 45em) 50vw, 100vw"
+          loading="lazy"
         />
       ))}
     </div>

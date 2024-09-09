@@ -143,13 +143,22 @@ function ProductImage({
   image: ProductVariantFragment['image'];
   images: CarouselImage[];
 }) {
-  if (!image) {
-    return <div className="product-image" />;
-  }
   const [defImage, setDefImage] = useState({
-    altText: image.altText,
-    url: image.url,
+    altText: image?.altText || 'Product Image',
+    url: image?.url || '',
   });
+  if (!image) {
+    return (
+      <div className="skeleton-image-wrapper col-md-6">
+        <div className="product-image skeleton-image-leader" />
+        <div className="product-image skeleton-follower-wrapper">
+          <div className="product-image skeleton-image" />
+          <div className="product-image skeleton-image" />
+          <div className="product-image skeleton-image" />
+        </div>
+      </div>
+    );
+  }
   const handleClick = (image: CarouselImage) => {
     setDefImage(image);
   };
