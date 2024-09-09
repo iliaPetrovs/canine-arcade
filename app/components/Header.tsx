@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import Dropdown from '~/subcomponents/Dropdown/Dropdown';
 import banner from './img/banner.png';
 import {CiShoppingCart, CiSearch} from 'react-icons/ci';
+import Banner from './Banner';
 
 type HeaderProps = Pick<LayoutProps, 'header' | 'cart' | 'isLoggedIn'>;
 
@@ -16,39 +17,42 @@ type Viewport = 'desktop' | 'mobile';
 export function Header({header, isLoggedIn, cart}: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className={classNames('header', styles.header)}>
-      <div className={styles.daddyStripe}>
-        <div className={styles.stripe} />
-        <div className={styles.stripe} />
-        <div className={styles.stripe} />
-        <div className={styles.stripe} />
-        <div className={styles.stripe} />
-        <div className={styles.stripe} />
-      </div>
-      <NavLink
-        className={styles.headerLogo}
-        prefetch="intent"
-        to="/"
-        style={activeLinkStyle}
-        end
-      >
-        <img
-          className={styles.banner}
-          src={banner}
-          alt="Hyena cartoon holding a sewing needle with a thread coming out, underlining the words 'Canine Arcade'"
-        />
-      </NavLink>
-      <div className={styles.navbar}>
-        <HeaderMenu
-          menu={menu}
-          viewport="desktop"
-          primaryDomainUrl={header.shop.primaryDomain.url}
-        />
-      </div>
-      <div className={classNames(styles.navbar, styles.headerCta)}>
-        <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
-      </div>
-    </header>
+    <>
+      <Banner />
+      <header className={classNames('header', styles.header)}>
+        <div className={styles.daddyStripe}>
+          <div className={styles.stripe} />
+          <div className={styles.stripe} />
+          <div className={styles.stripe} />
+          <div className={styles.stripe} />
+          <div className={styles.stripe} />
+          <div className={styles.stripe} />
+        </div>
+        <NavLink
+          className={styles.headerLogo}
+          prefetch="intent"
+          to="/"
+          style={activeLinkStyle}
+          end
+        >
+          <img
+            className={styles.banner}
+            src={banner}
+            alt="Hyena cartoon holding a sewing needle with a thread coming out, underlining the words 'Canine Arcade'"
+          />
+        </NavLink>
+        <div className={styles.navbar}>
+          <HeaderMenu
+            menu={menu}
+            viewport="desktop"
+            primaryDomainUrl={header.shop.primaryDomain.url}
+          />
+        </div>
+        <div className={classNames(styles.navbar, styles.headerCta)}>
+          <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+        </div>
+      </header>
+    </>
   );
 }
 
