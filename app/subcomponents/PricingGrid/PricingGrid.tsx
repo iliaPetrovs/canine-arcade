@@ -8,11 +8,11 @@ const PricingGrid = () => {
   return (
     <>
       <div className="row">
-        <div className="col-xs-12 col-lg-6">
+        <div className="col-xs-12 col-lg-6 text-center">
           <BubbleTitle title="Fursuit Commissions" />
           <p className={styles.status}>Commission status: closed</p>
         </div>
-        <div className="col-xs-12 col-lg-6">
+        <div className="col-xs-12 col-lg-offset-1 col-lg-5">
           <div className={styles.imageWrapper}>
             <div className={styles.imageContainer}>
               <div className={styles.imageHeader}>

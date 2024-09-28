@@ -5,6 +5,7 @@ type SectionProps = {
   children: React.ReactNode;
   bg?: 'light';
   isHero?: boolean;
+  className?: string;
 };
 
 const BG_CLASS = {
@@ -12,10 +13,10 @@ const BG_CLASS = {
   default: '',
 };
 
-const Section = ({bg, isHero, children}: SectionProps) => {
+const Section = ({bg, isHero, children, className}: SectionProps) => {
   return (
     <section
-      className={classNames('section', BG_CLASS[bg ?? 'default'], {
+      className={classNames('section', className, BG_CLASS[bg ?? 'default'], {
         topOffset: isHero,
       })}
     >

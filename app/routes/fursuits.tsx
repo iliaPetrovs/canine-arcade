@@ -34,7 +34,7 @@ export default function Collection() {
 
   return (
     <Section bg="light" isHero={true}>
-      <div className="page">
+      <div className="page m-t-5">
         <header className="m-b-5">
           <BubbleTitle title="Fursuit Gallery" />
           {/* <p className="body-copy-1 btm-5">{collection.description}</p> */}

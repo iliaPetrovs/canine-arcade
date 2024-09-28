@@ -124,7 +124,7 @@ const content = (
 
 export default function Pricing() {
   return (
-    <Section isHero={true}>
+    <Section className="m-t-0" isHero={true}>
       <Text title="Terms of service" content={content} />
     </Section>
   );

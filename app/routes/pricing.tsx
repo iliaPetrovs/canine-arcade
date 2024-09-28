@@ -3,7 +3,7 @@ import PricingGrid from '~/subcomponents/PricingGrid/PricingGrid';
 
 export default function Pricing() {
   return (
-    <Section isHero={true}>
+    <Section className="m-t-0" isHero={true}>
       <PricingGrid />
     </Section>
   );

@@ -95,11 +95,11 @@ function MobileMenuAside({
 }) {
   return (
     <Aside id="mobile-menu-aside" heading="MENU">
-      <HeaderMenu
+      {/* <HeaderMenu
         menu={menu}
         viewport="mobile"
         primaryDomainUrl={shop.primaryDomain.url}
-      />
+      /> */}
     </Aside>
   );
 }

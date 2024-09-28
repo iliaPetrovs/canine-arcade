@@ -62,7 +62,7 @@
 .panel h3 {
     overflow: hidden;
     position: absolute;
-    z-index: 10;
+    z-index: 5;
     color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 4px;

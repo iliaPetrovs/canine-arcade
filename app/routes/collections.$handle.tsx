@@ -10,6 +10,7 @@ import type {ProductItemFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/utils';
 import Card from '~/subcomponents/Card/Card';
 import Section from '~/components/Section';
+import BubbleTitle from '~/subcomponents/BubbleTitle/BubbleTitle';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [
@@ -47,7 +48,9 @@ export default function Collection() {
     <Section>
       <div className="page">
         <header>
-          <h1 className="header-1">Shop {collection.title}</h1>
+          <h1 className="header-1">
+            <BubbleTitle title={collection.title} />
+          </h1>
           <p className="body-copy-1 btm-5">{collection.description}</p>
         </header>
         <Pagination connection={collection.products}>
