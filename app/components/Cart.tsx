@@ -183,7 +183,7 @@ function CartLineQuantity({line}: {line: CartLine}) {
 
   return (
     <div className={classNames('cart-line-quantiy', styles.cartLineQuantity)}>
-      <small>Quantity: {quantity} &nbsp;&nbsp;</small>
+      <small>Qty: {quantity} &nbsp;&nbsp;</small>
       <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
         <button
           className={styles.quantity}
