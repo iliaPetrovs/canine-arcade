@@ -276,9 +276,9 @@ function ProductForm({
       <br />
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
-        onClick={() => {
-          window.location.href = window.location.href + '#cart-aside';
-        }}
+        // onClick={() => {
+        //   window.location.href = window.location.href + '#cart-aside';
+        // }}
         lines={
           selectedVariant
             ? [
