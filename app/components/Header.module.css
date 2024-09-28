@@ -1,117 +1,312 @@
-.headerLogo {
-    @media(min-width: 967px) {
-    }
-}
 .header {
-    background: var(--secondary);
-    overflow-x: hidden;
-    z-index: 9;
-    @media(min-width: 967px) {
-        overflow-x: visible;
-        height: 170px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 24px;
-    }
+  background: var(--secondary);
+  overflow-x: hidden;
+  z-index: 9;
+  @media (min-width: 967px) {
+    overflow-x: visible;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
 }
 .navbar {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  @media (min-width: 967px) {
+    grid-gap: 24px;
     display: flex;
-    @media(min-width: 967px) {
-        grid-gap: 24px;
-        display: flex;
-        width: inherit;
-        height: inherit;
-        display: inline;
-    }
+    width: inherit;
+    height: inherit;
+    display: inline;
+  }
 }
 .navbarProduct {
-    @media(min-width: 967px) {
-        grid-gap: 0;    
-        background: var(--tertiary);
-        border-radius: 50px;
-        padding: 8px;
-        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-    }
+  @media (min-width: 967px) {
+    grid-gap: 0;
+    background: var(--tertiary);
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .navbar a {
-    color: var(--color-dark);
-    @media(min-width: 967px) {
-        padding: 8px 16px;
-        text-decoration: none;
-        transition: all 200ms ease-in-out;
-    }
+  color: var(--color-dark);
+  @media (min-width: 967px) {
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+  }
 }
 
 .navbar a:hover {
-    @media(min-width: 967px) {
-        background: var(--secondary);
-        border-radius: 50px;
-    }
+  @media (min-width: 967px) {
+    background: var(--secondary);
+    border-radius: 50px;
+  }
 }
 
 .banner {
-    display: none;
-    @media(min-width: 967px) {
-        height: 140px;
-        margin-top: 20px;
-        display: block;
-        max-width: 300px;
-    }
+  display: none;
+  @media (min-width: 967px) {
+    height: 140px;
+    margin-top: 20px;
+    display: block;
+    max-width: 300px;
+  }
 }
 
 .navbarWrapper {
-    position: relative;
+  position: relative;
+}
+
+.cartDesktop {
+  display: none;
+  @media (min-width: 967px) {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 .headerCta {
-    @media (min-width: 967px) {
-        position: absolute;
-        top: 150px;
-        right: 0;
-    }
+  @media (min-width: 967px) {
+    position: absolute;
+    top: 150px;
+    right: 0;
+  }
 }
 
 .stripe {
-    background: var(--color-accent);
-    width: 20px;
-    height: 100%;
-    @media(min-width: 967px) {
-        width: 150px;
-    }
+  background: var(--color-accent);
+  width: 20px;
+  height: 100%;
+  @media (min-width: 967px) {
+    width: 150px;
+  }
 }
 
 .daddyStripe {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0.5;
-    z-index: -1;
-    transform: skewX(60deg);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.5;
+  z-index: -1;
+  transform: skewX(60deg);
 }
 
 .announcementBanner {
-    position: relative;
-    color: var(--tertiary);
-    z-index: 100;
-    background-color: var(--primary);
-    text-align: center;
-    font-weight: 200;
-    font-size: 16px;
+  position: relative;
+  color: var(--tertiary);
+  z-index: 5;
+  background-color: var(--primary);
+  text-align: center;
+  font-weight: 200;
+  font-size: 16px;
 }
 
 .announcementBanner p {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
 .aside {
-    z-index: 101;
+  z-index: 101;
 }
 
 .mobileNavLinks {
-    padding-left: 16px;
+  padding-left: 16px;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+
+  @media (min-width: 967px) {
+    display: none;
+  }
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.mobileNav.open,
+.cart.open {
+  transform: translateX(0);
+}
+
+.mobileNavContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%; /* Adjust as needed */
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+  overflow: hidden;
+  background: var(--tertiary);
+}
+
+.mobileNavHamburger {
+  padding: 0;
+  margin: 8px;
+  background: none;
+  outline: none;
+  border: none;
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.mobileNavHamburger > svg,
+.mobileNavHamburgerClosed > svg {
+  height: 100%;
+  width: 100%;
+  color: var(--color-dark);
+}
+
+.mobileNavHamburgerClosed {
+  background: none;
+  outline: none;
+  border: none;
+  height: 48px;
+  width: 48px;
+}
+
+.mobileNavContentWrapper {
+  position: relative;
+}
+
+.headerCtas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  @media (min-width: 967px) {
+    display: none;
+  }
+}
+.invisibleBlock {
+  display: block;
+  height: 24px;
+}
+
+.mobileNavLinksWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin-top: 24px;
+}
+
+.mobileNavLinksWrapper > a,
+.mobileNavLinksWrapper > div {
+  color: var(--color-dark) !important;
+  text-decoration: none;
+  font-size: 24px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--color-dark);
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.mobileNavLinksWrapper > div > button {
+  font-size: 24px;
+  padding-left: 0;
+}
+
+.toggleCartButton {
+  background: none;
+  outline: none;
+  border: none;
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.toggleCartButton:hover {
+    background: var(--tertiary);
+}
+
+.toggleCartButton > svg {
+  height: 100%;
+  width: 100%;
+  color: var(--color-dark);
+}
+
+.toggleCartButton > :global(.cart-count) {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cartContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%; /* Adjust as needed */
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+  overflow: hidden;
+  background: var(--tertiary);
+}
+
+.cartContentWrapper {
+  position: relative;
+}
+
+.cartButton {
+  padding: 0;
+  margin: 8px;
+  background: none;
+  outline: none;
+  border: none;
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+}
+
+.cartButton > svg {
+  height: 100%;
+  width: 100%;
+  color: var(--color-dark);
+}
+
+.cartButton:hover {
+    background: var(--secondary);
+}
+
+.header :global(button):hover {
+    cursor: pointer;
 }
