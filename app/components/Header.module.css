@@ -104,7 +104,8 @@
   position: relative;
   color: var(--tertiary);
   z-index: 5;
-  background-color: var(--primary);
+  background: yellow;
+  color: black;
   text-align: center;
   font-weight: 200;
   font-size: 16px;
